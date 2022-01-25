@@ -17,8 +17,32 @@ function Flights() {
         }
         return flights;
     }
-    return {calculateNumberOfFlights};
+
+    function checkAircraftRevision(distanceLimit, disntacesArray){
+        let totalDistance = 0;
+        let distance;
+        for(distance of totalDistance){
+            totalDistance += distance;
+        };
+
+        if (totalDistance <= distanceLimit/2){
+            return "The revision needs to be done within the next 3 months";
+        } else if (totalDistance < 3*distanceLimit/4){
+            return "The revision needs to be done within the next 2 months";
+        } else {
+            return "The revision needs to be done within the next month";
+        }
+
+        if (totalDistance > distanceLimit){
+            throw new Error("The total distance =" + totalDistance + " is more then distance limit = "+ distanceLimit);
+        }
+
+    };
+
+    return {calculateNumberOfFlights, checkAircraftRevision};
 }
+
+
 
 module.exports = Flights();
 
