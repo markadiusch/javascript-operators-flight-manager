@@ -24,11 +24,11 @@ function Flights() {
 
         for(distance of totalDistance){
             totalDistance += distance;
-        };
+        }
 
         if (totalDistance <= distanceLimit/2){
             return "The revision needs to be done within the next 3 months";
-        } else if (totalDistance <= 3*distanceLimit/4){
+        } else if (totalDistance <= 3 * distanceLimit/4){
             return "The revision needs to be done within the next 2 months";
         } else {
             return "The revision needs to be done within the next month";
