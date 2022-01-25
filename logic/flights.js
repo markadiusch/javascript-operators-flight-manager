@@ -18,11 +18,11 @@ function Flights() {
         return flights;
     }
 
-    function checkAircraftRevision(distanceLimit, disntacesArray){
+    function checkAircraftRevision(distanceLimit, disntacesArray) {
         let totalDistance = 0;
         let distance;
 
-        for(distance of totalDistance){
+        for(distance of distancesArray){
             totalDistance += distance;
         }
 
