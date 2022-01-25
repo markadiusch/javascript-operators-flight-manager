@@ -5,7 +5,7 @@ function Passengers() {
         for(passengers of passengersArray){
             passengersNumber += passengers;
         }
-        if (passengersNumber > capacity){
+        if (passengersNumber > flightCapacity){
             throw new Error("The number of passengers is more then the capacity.");
         } 
         return passengersNumber;
