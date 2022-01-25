@@ -5,10 +5,11 @@ function Flights() {
         if (passengers % capacity == 0){
             flights = passengers/capacity;
         } else {
-            flights = math.floor(passengers/capacity)+1;
+            flights = Math.floor(passengers/capacity)+1;
         }
-        return {calculateNumberOfFlights};
+        return flights;
     }
+    return {calculateNumberOfFlights};
 }
 
 module.exports = Flights();
