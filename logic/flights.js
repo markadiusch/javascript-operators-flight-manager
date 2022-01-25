@@ -18,7 +18,7 @@ function Flights() {
         return flights;
     }
 
-    function checkAircraftRevision(distanceLimit, disntacesArray) {
+    function checkAircraftRevision(distanceLimit, distancesArray) {
         let totalDistance = 0;
         let distance;
 
