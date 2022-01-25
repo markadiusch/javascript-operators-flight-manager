@@ -25,6 +25,10 @@ function Flights() {
         for(distance of distancesArray){
             totalDistance += distance;
         }
+        
+        if (totalDistance > distanceLimit) {
+            throw new Error("The total distance =" + totalDistance + " is more then distance limit = "+ distanceLimit);
+        }
 
         if (totalDistance <= distanceLimit/2){
             return "The revision needs to be done within the next 3 months";
@@ -32,10 +36,6 @@ function Flights() {
             return "The revision needs to be done within the next 2 months";
         } else {
             return "The revision needs to be done within the next month";
-        }
-
-        if (totalDistance > distanceLimit) {
-            throw new Error("The total distance =" + totalDistance + " is more then distance limit = "+ distanceLimit);
         }
 
     };
