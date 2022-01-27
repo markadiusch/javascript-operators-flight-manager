@@ -17,7 +17,7 @@ function Prices() {
                 break;
         }
 
-        switch (passengerVariation.toUpperCase()){
+        switch (flightType.toUpperCase()){
             case 'ECONOMY': finalPrice *= 0.97;
                 break;
             case 'BUSINESS': finalPrice *= 1.10;
