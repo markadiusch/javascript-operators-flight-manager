@@ -7,8 +7,15 @@ function Util() {
         }
         return totalDistributedPassengers;
     }
-
-    return {calculateTotalDistributedPassengers};
+    function calculateTotalNumberOfPassengers(amountOfPassengers){
+        let sumOfPassengers = 0;
+        let value;
+        for (value of amountOfPassengers){
+            sumOfPassengers += value;
+        }
+        return sumOfPassengers;
+    }
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers};
 }
 
 module.exports = Util();
