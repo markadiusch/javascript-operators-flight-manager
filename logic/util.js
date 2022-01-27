@@ -15,7 +15,12 @@ function Util() {
         }
         return sumOfPassengers;
     }
-    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers};
+    function checkInput(input){
+        if (input == "" || isNaN(x)){
+            throw new Error("Input is empty or is not a number")
+        }
+    }
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
 }
 
 module.exports = Util();
