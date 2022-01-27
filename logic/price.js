@@ -13,7 +13,7 @@ function Prices() {
         switch (passengerType.toUpperCase()) {
             case 'REGULAR': finalPrice *= 0.95;
                 break;
-            case 'VIP': finalPrice *= 1,05;
+            case 'VIP': finalPrice *= 1.05;
                 break;
         }
 
