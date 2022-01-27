@@ -11,34 +11,61 @@ function Passengers() {
         return passengersNumber;
     }
 
-    function distributeAllSeatsToAllPassengers(vipPassengers, normalPassengers, flights, businessSeats, economySeats){
-        let passengers;
-        let distribution = {
-            vipPassengersWithBusinessSeats: 0,
-            vipPassengersWithEconomySeats: 0,
-            regularPassengersWithBusinessSeats: 0,
-            regularPassengersWithEconomySeats: 0
-        };
+    function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, nrOfFlights, businessSeatsPerFlight, economySeatsPerFlight){
+        let vipPassengersWithBusinessSeats = 0, 
+            vipPassengersWithEconomySeats = 0, 
+            regularPassengersWithBusinessSeats = 0,
+            regularPassengersWithEconomySeats = 0;
+        let availableBusinessSeats = nrOfFlights * businessSeatsPerFlight;
+        let availableEconomySeats = nrOfFlights * economySeatsPerFlight;
 
-        for(passengers of vipPassengers){
-            if (businessSeats>0){
-                vipPassengersWithBusinessSeats += passengers;
-            } else if (economySeats>0) {
-                vipPassengersWithEconomySeats += passengers;
-            }
-        }
+        var vipBusinessConfiguration = {passengers:vipPassengers, seats:availableBusinessSeats};
+        vipPassengersWithBusinessSeats = updateConfiguration(vipBusinessConfiguration, businessSeatsPerFlight);
 
-        for(passengers of normalPassengers){
-            if (businessSeats>0){
-                regularPassengersWithBusinessSeats =+ passengers;
-            } else if (economySeats>0){
-                regularPassengersWithEconomySeats =+ passengers;
-            }
-        }
+        var vipEconomyConfiguration = {passengers:vipBusinessConfiguration.passengers, seats:availableEconomySeats};
+        vipPassengersWithEconomySeats = updateConfiguration(vipEconomyConfiguration, economySeatsPerFlight);
 
-        return {distributeAllSeatsToAllPassengers}; 
+        var regularBusinessConfiguration = {passengers:regularPassengers, seats:vipBusinessConfiguration.seats};
+        regularBusinessConfiguration = updateConfiguration(regularBusinessConfiguration, businessSeatsPerFlight);
+
+        var regularEconomyConfiguration = {passengers:regularBusinessConfiguration.passengers, seats:vipEconomyConfiguration.seats};
+        regularEconomyConfiguration = updateConfiguration(regularEconomyConfiguration, economySeatsPerFlight);
+
+        return {vipPassengersWithBusinessSeats:vipPassengersWithBusinessSeats,
+                vipPassengersWithEconomySeats:vipPassengersWithEconomySeats,
+                regularPassengersWithBusinessSeats:regularPassengersWithBusinessSeats,
+                regularPassengersWithEconomySeats:regularPassengersWithEconomySeats}; 
     }
-    return {checkFlightCapacity};
+
+    function updateConfiguration(configuration, seatsPerFlight){
+        let PassengersWithSeats = 0;
+        whlie (configuration.passengers > 0) 
+        {
+            if (configuration.seats > 0) {
+                if (configuration.passengers >= configuration.seats) {
+
+                    if (configuration.seats > configuration.seatsPerFlight) {
+                        configuration.passengers -= seatsPerFlight;
+                        configuration.seats -= seatsPerFlight;
+                        PassengersWithSeats += seatsPerFlight;
+                    } else {
+                        configuration.passengers -= configuration.seats;
+                        passengersWithSeats += configuration.seats;
+                        configuration.seats = 0;
+                    }
+               } else {
+                   passengersWithSeats += configuration.passengers;
+                   configuration.seats -= configuration.passengers;
+                   configuration.passengers = 0;
+               }
+            } else {
+                break;
+            }
+        }
+        return passengersWithSeats;
+    }
+
+    return {checkFlightCapacity, distributeAllSeatsToAllPassengers};
 };
 
 module.exports = Passengers();
