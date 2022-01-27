@@ -38,7 +38,7 @@ function Passengers() {
     }
 
     function updateConfiguration(configuration, seatsPerFlight){
-        let PassengersWithSeats = 0;
+        let passengersWithSeats = 0;
         while (configuration.passengers > 0) {
             if (configuration.seats > 0) {
                 if (configuration.passengers >= configuration.seats) {
