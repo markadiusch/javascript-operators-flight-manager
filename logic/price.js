@@ -21,8 +21,8 @@ function Prices() {
         } else if (flightType == "business"){
             flightVariation = 10;
         }
-        finalPrice *= 1 + passengerVariation/100;
-        finalPrice *= 1 + flightVariation/100
+        defaultFinalPrice *= 1 + passengerVariation/100;
+        defaultFinalPrice *= 1 + flightVariation/100
         return defaultFinalPrice;
     }
     return {calculateFinalPrice, calculateDefaultFinalPrice};
