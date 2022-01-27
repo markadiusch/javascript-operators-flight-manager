@@ -7,7 +7,25 @@ function Prices() {
 
         return finalPrice.toFixed(2);
     }
-    return {calculateFinalPrice};
+    function calculateDefaultFinalPrice(basePrice, passengerType, flightType){
+        let passengerVariation = 0;
+        let flightVariation = 0;
+        let defaultFinalPrice = basePrice;
+        if (passengerType == "regular"){
+            passengerVariation = -5;
+        } else if (passengerType == "vip"){
+            passengerVariation = 5;
+        }
+        if (flightType == "economy"){
+            flightVariation = -3;
+        } else if (flightType == "business"){
+            flightVariation = 10;
+        }
+        finalPrice *= 1 + passengerVariation/100;
+        finalPrice *= 1 + flightVariation/100
+        return defaultFinalPrice;
+    }
+    return {calculateFinalPrice, calculateDefaultFinalPrice};
 }
 
 module.exports = Prices ();
