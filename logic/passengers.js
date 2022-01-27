@@ -12,6 +12,7 @@ function Passengers() {
     }
 
     function distributeAllSeatsToAllPassengers(vipPassengers, regularPassengers, nrOfFlights, businessSeatsPerFlight, economySeatsPerFlight){
+        
         let vipPassengersWithBusinessSeats = 0, 
             vipPassengersWithEconomySeats = 0, 
             regularPassengersWithBusinessSeats = 0,
@@ -65,6 +66,6 @@ function Passengers() {
     }
 
     return {checkFlightCapacity, distributeAllSeatsToAllPassengers};
-};
+}
 
 module.exports = Passengers();
