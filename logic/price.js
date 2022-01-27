@@ -28,9 +28,7 @@ function Prices() {
 
     }
     function calculateTotalFinalPrice(numberOfSeats, passengerType, flightType, basePrice){
-        let finalPrice = 0;
-        finalPrice = numberOfSeats * calculateDefaultFinalPrice(basePrice, passengerType, flightType);
-        return finalPrice;
+        return numberOfSeats * calculateDefaultFinalPrice(basePrice, passengerType, flightType);
     }
     return {calculateFinalPrice, calculateDefaultFinalPrice, calculateTotalFinalPrice};
 }
