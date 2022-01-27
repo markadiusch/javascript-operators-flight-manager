@@ -47,7 +47,7 @@ function Passengers() {
                     if (configuration.seats > configuration.seatsPerFlight) {
                         configuration.passengers -= seatsPerFlight;
                         configuration.seats -= seatsPerFlight;
-                        PassengersWithSeats += seatsPerFlight;
+                        passengersWithSeats += seatsPerFlight;
                     } else {
                         configuration.passengers -= configuration.seats;
                         passengersWithSeats += configuration.seats;
