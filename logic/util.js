@@ -21,10 +21,10 @@ function Util() {
         }
     }
     function calculateTotalDistance(arrayOfDistance){
-        let value = 0;
+        let distance;
         let totalDistance = 0;
-        for (value of arrayOfDistance){
-            if (value>=0){
+        for (distance of arrayOfDistance){
+            if (distance>=0){
                 totalDistance += value;
             }
         }
