@@ -8,22 +8,24 @@ function Prices() {
         return finalPrice.toFixed(2);
     }
     function calculateDefaultFinalPrice(basePrice, passengerType, flightType){
-        let passengerVariation = 0;
-        let flightVariation = 0;
-        let defaultFinalPrice = basePrice;
-        if (passengerType == "regular"){
-            passengerVariation = -5;
-        } else if (passengerType == "vip"){
-            passengerVariation = 5;
+        let finalPrice = basePrice;
+
+        switch (passengerType.toUpperCase()) {
+            case 'REGULAR': finalPrice *= 0.95;
+                break;
+            case 'VIP': finalPrice *= 1,05;
+                break;
         }
-        if (flightType == "economy"){
-            flightVariation = -3;
-        } else if (flightType == "business"){
-            flightVariation = 10;
+
+        switch (passengerVariation.toUpperCase()){
+            case 'ECONOMY': finalPrice *= 0.97;
+                break;
+            case 'BUSINESS': finalPrice *= 1.10;
+                break;
         }
-        defaultFinalPrice *= 1 + passengerVariation/100;
-        defaultFinalPrice *= 1 + flightVariation/100
-        return defaultFinalPrice;
+
+        return finalPrice.toFixed(2);
+
     }
     return {calculateFinalPrice, calculateDefaultFinalPrice};
 }
