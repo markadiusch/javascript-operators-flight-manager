@@ -1,9 +1,13 @@
 function Util() {
     function calculateTotalDistributedPassengers(distributedPassengers){
-        let totalNumOfPassengers = 0;
-        totalNumOfPassengers = distributedPassengers.vipPassengersWithBusinessSeats + distributedPassengers.vipPassengersWithEconomySeats + distributedPassengers.regularPassengersWithBusinessSeats + distributedPassengers.regularPassengersWithEconomySeats;
-        
-    };
+        let totalDistributedPassengers = 0;
+        let value;
+        for (value of distributedPassengers){
+            totalDistributedPassengers += distributedPassengers[value];
+        }
+        return totalDistributedPassengers;
+    }
+    
     return {calculateTotalDistributedPassengers};
 }
 
