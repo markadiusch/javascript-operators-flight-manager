@@ -20,7 +20,18 @@ function Util() {
             throw new Error("Input is empty or is not a number")
         }
     }
-    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput};
+    function calculateTotalDistance(arrayOfDistance){
+        let value = 0;
+        let totalDistance = 0;
+        for (value of arrayOfDistance){
+            if (value>=0){
+                totalDistance += value;
+            }
+        }
+        
+        return totalDistance;
+    }
+    return {calculateTotalDistributedPassengers, calculateTotalNumberOfPassengers, checkInput, calculateTotalDistance};
 }
 
 module.exports = Util();
