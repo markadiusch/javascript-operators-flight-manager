@@ -6,7 +6,7 @@ function Prices() {
 
         return finalPrice.toFixed(2);
     }
-    return {calculateFinalPrice()};
+    return {calculateFinalPrice};
 }
 
 module.exports = Prices ();
