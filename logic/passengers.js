@@ -59,7 +59,7 @@ function Passengers() {
                    configuration.passengers = 0;
                }
             } else {
-                break;
+              //  break;
             }
         }
         return passengersWithSeats;
